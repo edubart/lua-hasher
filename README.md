@@ -1,5 +1,5 @@
 # Hasher
-A small library with hash and encoding functions implemented C. Currently supports
+A small library with hash and encoding functions implemented in C. Currently supports
 blake2b hashing and base58 encode/decode.
 
 ## Installation
