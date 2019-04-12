@@ -1,4 +1,5 @@
 *.so
 *.o
 .vscode
+*.rock
 references
