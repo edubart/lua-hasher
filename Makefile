@@ -19,8 +19,16 @@ test-all:
 	$(MAKE) clean
 	$(MAKE) LUAINC=/usr/include/lua5.1 LUAEXE=lua5.1 test
 
+test-rocks:
+	luarocks make --lua-version=5.3 --local rocks/hasher-0.1.0-1.rockspec
+	luarocks make --lua-version=5.1 --local rocks/hasher-0.1.0-1.rockspec
+	lua5.1 test.lua
+	lua5.3 test.lua
+	luajit test.lua
+
 clean:
 	rm -f *.o *.so
+	rm -f src/*.o
 
 hasher.so: $(SRCS)
 	$(CC) $(CFLAGS) $(LDFLAGS) -o $(LIBNAME).so $(SRCS)
