@@ -5,6 +5,7 @@ CFLAGS=-Wall -Wextra -O2 -I$(LUAINC) -I./src/
 LDFLAGS=-shared -fPIC
 LIBNAME=hasher
 SRCS=lhasher.c src/blake2b.c src/base58.c
+ROCKSPEC=rocks/hasher-0.1.0-1.rockspec
 
 all: $(LIBNAME).so
 
@@ -27,7 +28,7 @@ test-rocks:
 	luajit test.lua
 
 upload-rocks:
-	luarocks upload --api-key=$LUAROCKS_APIKEY $(ROCKSPEC)
+	luarocks upload --api-key=$(LUAROCKS_APIKEY) $(ROCKSPEC)
 
 clean:
 	rm -f *.o *.so
